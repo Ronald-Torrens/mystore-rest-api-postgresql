@@ -1,4 +1,4 @@
-# 🛍️ MyStore API REST
+# 🛍️ MyStore REST API PostgreSQL
 
 Una API REST construida con **Express.js** para simular una tienda en línea. Incluye rutas para productos, categorías y usuarios, además de validaciones y manejo de errores personalizados con `joi` y `@hapi/boom`. Además, maneja persistencia de datos con PostgreSQL.
 
