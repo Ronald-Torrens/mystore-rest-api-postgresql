@@ -10,21 +10,26 @@ const URI = `postgres://${USER}:${PASSWORD}@${config.dbHost}:${config.dbPort}/${
 //const URI = `mysql://${USER}:${PASSWORD}@${config.dbHost}:${config.dbPort}/${config.dbName}`;
 */
 
+// Configuración Sequelize
 const options = {
   dialect: 'postgres',
-  logging: config.isProd ? false : true,
+  logging: config.isProd ? false : console.log, // Logging solo en dev
 };
 
+// SSL en producción (Railway, Render, Heroku)
 if (config.isProd) {
-  options.dialectOptions ={
+  options.dialectOptions = {
     ssl: {
+      require: true,
       rejectUnauthorized: false
     }
   };
-};
+}
 
+// Crear instancia de Sequelize
 const sequelize = new Sequelize(config.dbUrl, options);
 
+// Inicializar modelos
 setupModels(sequelize);
 
 module.exports = sequelize;
