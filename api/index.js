@@ -25,7 +25,7 @@ app.use(cors(options));
 //app.use(cors()); // Sólo para usar con Glitch
 
 app.get('/api', (req, res) => {
-  res.send(`<h1>My first server with Express.js...</h1>`);
+  res.send(`<h1>Server with Express.js and data persistence with PostgreSQL...</h1>`);
 });
 
 routerApi(app);
